@@ -8,28 +8,28 @@ public class QUINIELA {
         Scanner sarrera = new Scanner(System.in);
         Random random = new Random();
 
-        System.out.println("=== QUINIELA DE 15 PARTIDOS ===");
+        System.out.println("=== 15 PARTIDOKO QUINIELA" ===");
         System.out.println("Aukerak: 1 (Etxekoak irabazi), X (Berdinketa), 2 (Bisitariak irabazi)\n");
 
-        int asmatuta = 0; // contador de aciertos
+        int asmatuta = 0; // asmatutakoaren kontadorea
 
-        // Bucle for: recorre del partido 1 al 15
+        // Bucle for:  1-tik  15-erako buclea
         for (int partido = 1; partido <= 15; partido++) {
 
             // Pedimos el pronóstico
-            System.out.print("Partodua " + partido + " zure pronostikoa (1, X o 2): ");
+            System.out.print("Partidua " + partido + " zure pronostikoa (1, X o 2): ");
             String texto = sarrera.next();
-            char pronostikoa = texto.charAt(0); // tomamos solo el primer carácter
+            char pronostikoa = texto.charAt(0); // lehengo karakterea hartzen du bakarrik
 
-            // Validamos que sea 1, X o 2
+            // komprobatu 1, X o 2 direla
             while (pronostikoa != '1' && pronostikoa != 'x' && pronostikoa != '2') {
                 System.out.print("Aukera ez da egokia, sartu: 1, X o 2: ");
                 texto = sarrera.next();
                 pronostikoa = texto.charAt(0);
             }
 
-            // Generamos resultado aleatorio
-            int num = random.nextInt(3); // genera 0, 1 o 2
+            // Emaitza sortzen du 
+            int num = random.nextInt(3); //  0, 1 o 2 zenbakiak sortzen ditu
             char emaitza;
 
             if (num == 0) {
@@ -40,10 +40,10 @@ public class QUINIELA {
                 emaitza = '2';
             }
 
-            // Mostramos el resultado real
+            // partiduaren benetako emaitza erakutzi
             System.out.println("Resultado real del partido " + partido + ": " + emaitza);
 
-            // Comparamos usando ==
+            //  == erabiliz komprobatzen dugu
             if (pronostikoa == emaitza) {
                 System.out.println("✅ ¡Asmatuta!\n");
                 asmatuta++;
@@ -52,7 +52,7 @@ public class QUINIELA {
             }
         }
 
-        // Mostramos el total de aciertos 
+        // Asmakizun totalak biztaratu
         System.out.println("____________________________________");
         System.out.println("Asmatu duzu " + asmatuta + " 15 partidotik.");
         System.out.println("____________________________________");
